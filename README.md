@@ -37,11 +37,11 @@ import useContextMenu from 'use-context-menu';
 
 const SomeComponent = () => {
   const menu = useRef(null);
-  const menuState = useContextMenu({ menu });
+  const { document } = useContextMenu({ menu });
 
   return {
     <>
-      {menuState.document.isOpen && (
+      {document.isOpen && (
         <ul ref={menu}>
           <li onClick={doSomething}>Im a custom context menu element!<li>
           <li onClick={doSomething}>Style me however you like!<li>
@@ -63,31 +63,31 @@ import useContextMenu from 'use-context-menu';
 
 const SomeComponent = () => {
   const menu = useRef(null);
-  const targetOne = useRef(null);
-  const targetTwo = useRef(null);
+  const targetOneRef = useRef(null);
+  const targetTwoRef = useRef(null);
 
-  const menuState = useContextMenu({
+  const { targetOne, targetTwo } = useContextMenu({
     menu,
     targets: [
-      { id: 'targetOne', target: targetOne },
-      { id: 'targetTwo', target: targetTwo },
+      { id: 'targetOne', target: targetOneRef },
+      { id: 'targetTwo', target: targetTwoRef },
     ]
   });
 
   return {
     <>
-      <span ref={targetOne}>
+      <span ref={targetOneRef}>
         target one (right click me for target one menu).
       </span>
-      {menuState.targetOne.isOpen && (
+      {targetOne.isOpen && (
         <ul ref={menu}>
           <li onClick={doSomething}>Im targetOnes custom menu<li>
         </ul>
       )}
-      <span ref={targetTwo}>
+      <span ref={targetTwoRef}>
         target two (right click me for target two menu).
       </span>
-      {menuState.targetTwo.isOpen && (
+      {targetTwo.isOpen && (
         <ul ref={menu}>
           <li onClick={doSomething}>Im targetTwos custom menu.<li>
         </ul>
@@ -106,7 +106,7 @@ export default SomeComponent;
 ### `MenuState = { [targetId: string]: { isOpen: boolean } }`
 
 - `useContextMenu` returns a `MenuState` object that consists of keys based on the `id` you supply for each `target` object in the `targets` array. Thus, if you pass to `targets` argument an array like this: `[{ id: 'customId', target: someRef }]` it will return an object like this: `{ customId: { isOpen: boolean } }`.
-- **Note**: if no targets are passed the key defaults to `document` and should be used like this: `menuState.document.isOpen`.
+- **Note**: if no targets are passed the key defaults to `document` and should be used like this: `menuState.document.isOpen` (or de-structure it if you're so inclined).
 
 ### `menu: RefObject`
 
