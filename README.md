@@ -5,7 +5,7 @@ Check out the [demo](https://codesandbox.io/s/modern-https-pu2qe?file=/src/app.j
 A custom [React Hook](https://reactjs.org/docs/hooks-overview.html) that allows you to place custom context menu(s) (right click menu) throughout your codebase.
 
 `use-context-menu` accepts two arguments, `menu` (req) and `targets` (optional),
-and will return a state object representing which menu `isOpen`. See [DEMO](https://codesandbox.io/s/modern-https-pu2qe?file=/src/app.js) for examples).
+and will return a state object representing which menu `isOpen`. See [demo](https://codesandbox.io/s/modern-https-pu2qe?file=/src/app.js) for examples.
 
 ## Features
 
@@ -29,7 +29,7 @@ $ npm i use-context-menu
 
 ## Example
 
-**_NOTE:_** if no `targets` are passed the returned state key is automatically keyed as `document` and it is assumed that a right-click anywhere in the document should trigger the custom menu (see [DEMO](https://codesandbox.io/s/modern-https-pu2qe?file=/src/app.js) for additional examples/use cases).
+**_NOTE:_** if no `targets` are passed the returned state key is automatically keyed as `document` and it is assumed that a right-click anywhere in the document should trigger the custom menu (see [demo](https://codesandbox.io/s/modern-https-pu2qe?file=/src/app.js) for additional examples/use cases).
 
 ```js
 import { useRef } from 'react';
