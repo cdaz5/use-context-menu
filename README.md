@@ -1,9 +1,11 @@
 # use-context-menu
 
+Check out the [demo](https://codesandbox.io/s/modern-https-pu2qe?file=/src/app.js).
+
 A custom [React Hook](https://reactjs.org/docs/hooks-overview.html) that allows you to place custom context menu(s) (right click menu) throughout your codebase.
 
 `use-context-menu` accepts two arguments, `menu` (req) and `targets` (optional),
-and will return a state object representing which menu `isOpen`. See [DEMO](update me) for examples).
+and will return a state object representing which menu `isOpen`. See [DEMO](https://codesandbox.io/s/modern-https-pu2qe?file=/src/app.js) for examples).
 
 ## Features
 
@@ -27,7 +29,7 @@ $ npm i use-context-menu
 
 ## Example
 
-**_NOTE:_** if no `targets` are passed the returned state key is automatically keyed as `document` and it is assumed that a right-click anywhere in the document should trigger the custom menu (see [DEMO's](update me) for additional examples/use cases.
+**_NOTE:_** if no `targets` are passed the returned state key is automatically keyed as `document` and it is assumed that a right-click anywhere in the document should trigger the custom menu (see [DEMO](https://codesandbox.io/s/modern-https-pu2qe?file=/src/app.js) for additional examples/use cases).
 
 ```js
 import { useRef } from 'react';
@@ -75,19 +77,19 @@ const SomeComponent = () => {
   return {
     <>
       <span ref={targetOne}>
-        targets one's (right click me for targets one's menu)
+        target one (right click me for target one menu).
       </span>
       {menuState.targetOne.isOpen && (
         <ul ref={menu}>
-          <li onClick={doSomething}>Im targetOne's custome menu!<li>
+          <li onClick={doSomething}>Im targetOnes custom menu<li>
         </ul>
       )}
       <span ref={targetTwo}>
-        targets two's (right click me for targets two's menu)
+        target two (right click me for target two menu).
       </span>
       {menuState.targetTwo.isOpen && (
         <ul ref={menu}>
-          <li onClick={doSomething}>Im targetTwo's custome menu!<li>
+          <li onClick={doSomething}>Im targetTwos custom menu.<li>
         </ul>
       )}
     </>
@@ -108,7 +110,7 @@ export default SomeComponent;
 
 ### `menu: RefObject`
 
-- a `ref` to the menu element. This can be reused for multiple menus on same page. No need to create multiple menu `refs`! See [demo](update me) for examples on multiple menus.
+- a `ref` to the menu element. This can be reused for multiple menus on same page. No need to create multiple menu `refs`! See [demo](https://codesandbox.io/s/modern-https-pu2qe?file=/src/app.js) for examples on multiple menus.
 
 ### `targets?: Target[]`
 

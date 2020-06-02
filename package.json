@@ -34,6 +34,23 @@
   "name": "use-context-menu",
   "author": "Chris D'Ascoli",
   "module": "dist/use-context-menu.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cdaz5/use-context-menu"
+  },
+  "homepage": "https://github.com/cdaz5/use-context-menu",
+  "keywords": [
+    "react",
+    "react-hooks",
+    "hooks",
+    "custom-hooks",
+    "context-menu",
+    "contextmenu",
+    "right-click",
+    "rightclick",
+    "right-click-menu",
+    "rightclickmenu"
+  ],
   "devDependencies": {
     "@sheerun/mutationobserver-shim": "^0.3.3",
     "@testing-library/jest-dom": "^5.9.0",
