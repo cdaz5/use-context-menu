@@ -101,7 +101,7 @@ export default SomeComponent;
 
 ## FULL API
 
-#### `useContextMneu({ menu, targets }): MenuState`
+#### `useContextMenu({ menu, targets }): MenuState`
 
 ### `MenuState = { [targetId: string]: { isOpen: boolean } }`
 
