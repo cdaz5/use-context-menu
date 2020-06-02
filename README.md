@@ -1,6 +1,6 @@
 # use-context-menu
 
-A custom [React Hook](https://reactjs.org/docs/hooks-overview.html) that allows you to place a custom context menu(s) (right click menu) throughout your codebase.
+A custom [React Hook](https://reactjs.org/docs/hooks-overview.html) that allows you to place custom context menu(s) (right click menu) throughout your codebase.
 
 `use-context-menu` accepts two arguments, `menu` (req) and `targets` (optional),
 and will return a state object representing which menu `isOpen`. See [DEMO](update me) for examples).
@@ -31,6 +31,7 @@ $ npm i use-context-menu
 
 ```js
 import { useRef } from 'react';
+import useContextMenu from 'use-context-menu';
 
 const SomeComponent = () => {
   const menu = useRef(null);
@@ -52,40 +53,41 @@ const SomeComponent = () => {
 export default SomeComponent;
 ```
 
-**Example with Multiple Triggers:**
+**Example with Multiple Targets:**
 
 ```js
 import { useRef } from 'react';
+import useContextMenu from 'use-context-menu';
 
 const SomeComponent = () => {
   const menu = useRef(null);
-  const triggerOne = useRef(null);
-  const triggerTwo = useRef(null);
+  const targetOne = useRef(null);
+  const targetTwo = useRef(null);
 
   const menuState = useContextMenu({
     menu,
-    triggers: [
-      { id: 'triggerOne', target: triggerOne },
-      { id: 'triggerTwo', target: triggerTwo },
+    targets: [
+      { id: 'targetOne', target: targetOne },
+      { id: 'targetTwo', target: targetTwo },
     ]
   });
 
   return {
     <>
-      <span ref={triggerOne}>
-        Trigger One (right click me for trigger one's menu)
+      <span ref={targetOne}>
+        targets one's (right click me for targets one's menu)
       </span>
-      {menuState.triggerOne.isOpen && (
+      {menuState.targetOne.isOpen && (
         <ul ref={menu}>
-          <li onClick={doSomething}>Im triggerOne's custome menu!<li>
+          <li onClick={doSomething}>Im targetOne's custome menu!<li>
         </ul>
       )}
-      <span ref={triggerTwo}>
-        Trigger Two (right click me for trigger two's menu)
+      <span ref={targetTwo}>
+        targets two's (right click me for targets two's menu)
       </span>
-      {menuState.triggerTwo.isOpen && (
+      {menuState.targetTwo.isOpen && (
         <ul ref={menu}>
-          <li onClick={doSomething}>Im triggerTwo's custome menu!<li>
+          <li onClick={doSomething}>Im targetTwo's custome menu!<li>
         </ul>
       )}
     </>
